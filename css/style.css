@@ -4,3 +4,12 @@
     align-items: center;
     padding: 100px;
 }
+.add-book-modal{
+    display: flex;
+    justify-content: center;
+}
+#bookFields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -8,8 +8,17 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    
     <div class="content">
-        <button class="add-book">NEW BOOK</button>
+        <button class="add-book" >NEW BOOK</button>
+    </div>
+    <div class="add-book-modal" id="addBookModal">
+        <form id="bookFields" >
+            <input type="text" name="book-title" id="bookTitle" placeholder="Title">
+            <input type="text" name="book-author" id="bookAuthor" placeholder="Author">
+            <input type="text" name="book-pages" id="bookPages" placeholder="Pages">
+            <input type="text" name="book-read" id="bookRead" placeholder="Read">
+        </form>
     </div>
 </body>
 <script type="text/javascript" src="./js/script.js" ></script>
