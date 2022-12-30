@@ -16,7 +16,11 @@ finalAnswer = new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet
 
 console.log(finalAnswer.info());
 
-function addBookToLibrary() {
-   myLibrary.push(finalAnswer);
-  }
+function addBookToLibrary(title, author, pages, read) {
+   myLibrary.push(new Book(title, author, pages, read));
+}
+
+// function displayBooks(){
+//     myLibrary.forEach(x,console.log(x));
+// }
   
