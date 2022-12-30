@@ -20,7 +20,9 @@ function addBookToLibrary(title, author, pages, read) {
    myLibrary.push(new Book(title, author, pages, read));
 }
 
-// function displayBooks(){
-//     myLibrary.forEach(x,console.log(x));
-// }
+function displayBooks(){
+    for(i=0; i<myLibrary.length; i++){
+        console.log(myLibrary[i]);
+    }
+}
   
