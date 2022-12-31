@@ -1,5 +1,7 @@
 let myLibrary = [];
 let finalAnswer ='';
+const addBookModal = document.getElementById('addBookModal');
+const addBookBtn = document.getElementById('addBook');
 
 function Book(title, author, pages, read){
     this.title =title;
@@ -24,7 +26,15 @@ function displayBooks(){
     for(i=0; i<myLibrary.length; i++){
         console.log(myLibrary[i]);
     }
+
 }
+const openAddBookModal = () =>{
+    addBookModal.classList.replace('add-book-modal','active-book-modal');
+    console.log("Thats too hard");
+}
+
+addBookBtn.onclick = openAddBookModal;
+
 
 
 

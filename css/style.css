@@ -5,9 +5,12 @@
     padding: 100px;
 }
 .add-book-modal{
+    transform: scale(0);
+}
+.active-book-modal{
     display: flex;
     justify-content: center;
-    transform: scale(0);
+    transform: scale(1);
 }
 #bookFields{
     display: flex;
