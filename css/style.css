@@ -41,4 +41,11 @@ td{
     border: solid
 }
 
+button{
+    border: solid;
+    border-radius: 10px;
+    background-color: rgb(94, 39, 39);
+    padding: 10px;
+    width: fit-content;
+}
 

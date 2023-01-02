@@ -76,6 +76,10 @@ function BookCard(book){
     const pagesP = document.createElement('p');
     const readP = document.createElement('p');
 
+    const removeBook = document.createElement('button');
+    removeBook.classList.add('removeBook');
+    removeBook.textContent = "Remove Book";
+
     bookCard.classList.add('bookCard');
 
     titleP.textContent = "Title : "+book.title;
@@ -88,5 +92,8 @@ function BookCard(book){
     bookCard.appendChild(pagesP);
     bookCard.appendChild(readP);
 
+    bookCard.appendChild(removeBook);
+
     allBooks.appendChild(bookCard);
+
 }
