@@ -25,22 +25,21 @@ defaultBook = new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet
 
 function addBookToLibrary(title, author, pages, read) {
    myLibrary.push(new Book(title, author, pages, read));
-   displayBooks();
+    displayBooks();
    event.preventDefault();
 };
 
 //display all books
 function displayBooks(){
-
-    // for(i=0; i<myLibrary.length; i++){
-    //     console.log(myLibrary[i]);
-    //     bookDiv.textContent = myLibrary[i].title;
-    //     allBooks.appendChild(bookDiv);
-    // }
-
-    for(i=0; i<myLibrary.length; i++){
-        BookCard(myLibrary[i])
+    console.log(myLibrary.length==3);
+    if(myLibrary.length==3){
+        for(i=0; i<myLibrary.length; i++){
+            BookCard(myLibrary[i]);
+        }
+    }else{
+        BookCard(myLibrary[myLibrary.length-1]);
     }
+    
 };
 
 //show add books modal
@@ -57,7 +56,7 @@ const getBooksFromInput = () => {
     addBookToLibrary(title,author,pages,read);
 };
 
-displayBooks();
+// displayBooks();
 addBookBtn.onclick = openAddBookModal;
 
 bookFieldsForm.onsubmit = (e) => {
