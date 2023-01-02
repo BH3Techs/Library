@@ -1,7 +1,6 @@
 let myLibrary = [];
-myLibrary.push(new Book("1","2", "3", "4"));
-myLibrary.push(new Book("a","b", "348", "not yet read"));
-myLibrary.push(new Book("KwaChauruka","Athur Marara", "348", "not yet read"));
+myLibrary.push(new Book("Microeconomics","RobeRt S. Pindyck & Daniel l. Rubinfeld", "787", "Read"));
+myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
 let defaultBook ='';
 
 const addBookModal = document.getElementById('addBookModal');
@@ -79,10 +78,10 @@ function BookCard(book){
 
     bookCard.classList.add('bookCard');
 
-    titleP.textContent = book.title;
-    authorP.textContent = book.author;
-    pagesP.textContent = book.pages;
-    readP.textContent = book.read;
+    titleP.textContent = "Title : "+book.title;
+    authorP.textContent = "Author : "+book.author;
+    pagesP.textContent = "Number of pages : "+book.pages;
+    readP.textContent = "Read Status : "+book.read;
 
     bookCard.appendChild(titleP);
     bookCard.appendChild(authorP);

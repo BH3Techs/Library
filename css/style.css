@@ -25,6 +25,14 @@
     gap: 10px;
     border: solid;
     flex-wrap: wrap;
+    border-radius: 10px;
+    border-color: brown;
+    padding: 5px;
+}
+.bookCard{
+    border-color:coral;
+    display: flex;
+    flex-direction: column;
 }
 
 table,
