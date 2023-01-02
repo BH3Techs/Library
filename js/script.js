@@ -66,6 +66,7 @@ bookFieldsForm.onsubmit = (e) => {
     const read = document.getElementById('bookRead').value;
     
     addBookToLibrary(title,author,pages,read);
+    addBookModal.classList.replace('active-book-modal','add-book-modal');
 };
 
 function BookCard(book){
