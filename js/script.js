@@ -1,7 +1,7 @@
 let myLibrary = [];
-myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
-myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
-myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
+myLibrary.push(new Book("1","2", "3", "4"));
+myLibrary.push(new Book("a","b", "348", "not yet read"));
+myLibrary.push(new Book("KwaChauruka","Athur Marara", "348", "not yet read"));
 let defaultBook ='';
 
 const addBookModal = document.getElementById('addBookModal');
@@ -32,13 +32,16 @@ function addBookToLibrary(title, author, pages, read) {
 
 //display all books
 function displayBooks(){
+
+    // for(i=0; i<myLibrary.length; i++){
+    //     console.log(myLibrary[i]);
+    //     bookDiv.textContent = myLibrary[i].title;
+    //     allBooks.appendChild(bookDiv);
+    // }
+
     for(i=0; i<myLibrary.length; i++){
-        console.log(myLibrary[i]);
-        bookDiv.textContent = myLibrary[i].title;
-        allBooks.appendChild(bookDiv);
-
+        BookCard(myLibrary[i])
     }
-
 };
 
 //show add books modal
@@ -57,6 +60,7 @@ const getBooksFromInput = () => {
 
 displayBooks();
 addBookBtn.onclick = openAddBookModal;
+
 bookFieldsForm.onsubmit = (e) => {
     const title = document.getElementById('bookTitle').value;
     const author = document.getElementById('bookAuthor').value;
@@ -65,3 +69,25 @@ bookFieldsForm.onsubmit = (e) => {
     
     addBookToLibrary(title,author,pages,read);
 };
+
+function BookCard(book){
+    const bookCard = document.createElement('div');
+    const titleP = document.createElement('p');
+    const authorP = document.createElement('p');
+    const pagesP = document.createElement('p');
+    const readP = document.createElement('p');
+
+    bookCard.classList.add('bookCard');
+
+    titleP.textContent = book.title;
+    authorP.textContent = book.author;
+    pagesP.textContent = book.pages;
+    readP.textContent = book.read;
+
+    bookCard.appendChild(titleP);
+    bookCard.appendChild(authorP);
+    bookCard.appendChild(pagesP);
+    bookCard.appendChild(readP);
+
+    allBooks.appendChild(bookCard);
+}
