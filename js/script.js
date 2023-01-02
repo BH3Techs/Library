@@ -29,6 +29,13 @@ function addBookToLibrary(title, author, pages, read) {
    event.preventDefault();
 };
 
+function removeBook(id){
+    return myLibrary.filter(x => x.title!==id);
+};
+function updateReadStatus(id){
+    
+}
+
 //display all books
 function displayBooks(){
     console.log(myLibrary.length==3);
@@ -63,7 +70,7 @@ bookFieldsForm.onsubmit = (e) => {
     const title = document.getElementById('bookTitle').value;
     const author = document.getElementById('bookAuthor').value;
     const pages = document.getElementById('bookPages').value;
-    const read = document.getElementById('bookRead').value;
+    const read = document.getElementById('bookRead').updatevalue;
     
     addBookToLibrary(title,author,pages,read);
     addBookModal.classList.replace('active-book-modal','add-book-modal');
@@ -75,12 +82,22 @@ function BookCard(book){
     const authorP = document.createElement('p');
     const pagesP = document.createElement('p');
     const readP = document.createElement('p');
+    const buttonsDiv = document.createElement('div');
 
     const removeBook = document.createElement('button');
-    removeBook.classList.add('removeBook');
+    removeBook.classList.add('remove-book');
+    removeBook.setAttribute('id',"book.title");
     removeBook.textContent = "Remove Book";
 
-    bookCard.classList.add('bookCard');
+    const updateReadStatus = document.createElement('button');
+    updateReadStatus.classList.add('update-read-status');
+    updateReadStatus.setAttribute('id',book.title);
+    updateReadStatus.textContent = "Update Status";
+
+    buttonsDiv.appendChild(removeBook);
+    buttonsDiv.appendChild(updateReadStatus);
+
+    bookCard.classList.add('book-card');
 
     titleP.textContent = "Title : "+book.title;
     authorP.textContent = "Author : "+book.author;
@@ -91,8 +108,7 @@ function BookCard(book){
     bookCard.appendChild(authorP);
     bookCard.appendChild(pagesP);
     bookCard.appendChild(readP);
-
-    bookCard.appendChild(removeBook);
+    bookCard.appendChild(buttonsDiv);
 
     allBooks.appendChild(bookCard);
 

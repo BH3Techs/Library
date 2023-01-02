@@ -1,11 +1,21 @@
 .content{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+
+}
+h1{
+    color: rgb(94, 39, 39);
 }
 .add-book-modal{
     transform: scale(0);
+    
+
+}
+#addBook{
+    font-size: large;
 }
 .active-book-modal{
     display: flex;
@@ -17,9 +27,11 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    font-size: large;
 }
 .all-books,
-.bookCard{
+.book-card,
+.book-values{
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -28,24 +40,27 @@
     border-radius: 10px;
     border-color: brown;
     padding: 5px;
+    /* width: fit-content; */
+
 }
-.bookCard{
+.book-card{
     border-color:coral;
     display: flex;
     flex-direction: column;
 }
 
-table,
-tr,
-td{
-    border: solid
-}
-
-button{
+button,
+.btn-bkf{
     border: solid;
     border-radius: 10px;
     background-color: rgb(94, 39, 39);
     padding: 10px;
     width: fit-content;
+    color: white;
+    font-weight: bold;
+}
+div{
+    display: flex;
+    gap: 10px;
 }
 
