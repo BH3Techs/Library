@@ -38,7 +38,7 @@ function updateReadStatus(id){
 
 //display all books
 function displayBooks(){
-    console.log(myLibrary.length==3);
+    // console.log(myLibrary.length==3);
     if(myLibrary.length==3){
         for(i=0; i<myLibrary.length; i++){
             BookCard(myLibrary[i]);
@@ -59,7 +59,7 @@ const getBooksFromInput = () => {
     const pages = document.getElementById('bookPages').value;
     const read = document.getElementById('bookRead').value;
 
-    console.log(title);
+    // console.log(title);
     addBookToLibrary(title,author,pages,read);
 };
 
@@ -67,11 +67,18 @@ const getBooksFromInput = () => {
 addBookBtn.onclick = openAddBookModal;
 
 bookFieldsForm.onsubmit = (e) => {
+    event.preventDefault();
     const title = document.getElementById('bookTitle').value;
     const author = document.getElementById('bookAuthor').value;
     const pages = document.getElementById('bookPages').value;
-    const read = document.getElementById('bookRead').updatevalue;
-    
+    let read = document.getElementById('bookRead').checked;
+
+    console.log(read);
+    if(read){
+        read = "Read";
+    }else{
+        read = "Not Yet Read";
+    }
     addBookToLibrary(title,author,pages,read);
     addBookModal.classList.replace('active-book-modal','add-book-modal');
 };
@@ -113,3 +120,4 @@ function BookCard(book){
     allBooks.appendChild(bookCard);
 
 }
+
