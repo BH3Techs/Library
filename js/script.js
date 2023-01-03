@@ -2,7 +2,7 @@ let myLibrary = [];
 myLibrary.push(new Book("Microeconomics","RobeRt S. Pindyck & Daniel l. Rubinfeld", "787", "Read"));
 myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
 let defaultBook ='';
-
+let id = 2;
 const addBookModal = document.getElementById('addBookModal');
 const addBookBtn = document.getElementById('addBook');
 const allBooks = document.getElementById('allBooks');
@@ -10,7 +10,8 @@ const bookDiv = document.createElement('div');
 const addBooksBtn = document.getElementById('bookBtn');
 const bookFieldsForm = document.getElementById('bookFields');
 
-function Book(title, author, pages, read){
+function Book(id,title, author, pages, read){
+    this.id = id;
     this.title =title;
     this.author = author;
     this.pages = pages;
@@ -24,13 +25,18 @@ Book.prototype.info = function(){
 defaultBook = new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read");
 
 function addBookToLibrary(title, author, pages, read) {
-   myLibrary.push(new Book(title, author, pages, read));
+    id+=1;
+   myLibrary.push(new Book(id,title, author, pages, read));
     displayBooks();
    event.preventDefault();
 };
 
-function removeBook(id){
-    return myLibrary.filter(x => x.title!==id);
+function removeBookFunct(id){
+    console.log(id);
+    let index = myLibrary.findIndex(book => book.id == id)
+    console.log(myLibrary);
+    myLibrary.splice(index,1);
+    console.log(myLibrary);
 };
 function updateReadStatus(id){
     
@@ -38,6 +44,7 @@ function updateReadStatus(id){
 
 //display all books
 function displayBooks(){
+    
     // console.log(myLibrary.length==3);
     if(myLibrary.length==3){
         for(i=0; i<myLibrary.length; i++){
@@ -67,7 +74,7 @@ const getBooksFromInput = () => {
 addBookBtn.onclick = openAddBookModal;
 
 bookFieldsForm.onsubmit = (e) => {
-    event.preventDefault();
+    e.preventDefault();
     const title = document.getElementById('bookTitle').value;
     const author = document.getElementById('bookAuthor').value;
     const pages = document.getElementById('bookPages').value;
@@ -80,7 +87,7 @@ bookFieldsForm.onsubmit = (e) => {
         read = "Not Yet Read";
     }
     addBookToLibrary(title,author,pages,read);
-    addBookModal.classList.replace('active-book-modal','add-book-modal');
+    addBookModal.classList.replace('active-book-modal','add-book-modal');    
 };
 
 function BookCard(book){
@@ -93,12 +100,13 @@ function BookCard(book){
 
     const removeBook = document.createElement('button');
     removeBook.classList.add('remove-book');
-    removeBook.setAttribute('id',"book.title");
+    removeBook.setAttribute('id',book.id);
+    // removeBook.setAttribute('data-id',);
     removeBook.textContent = "Remove Book";
 
     const updateReadStatus = document.createElement('button');
     updateReadStatus.classList.add('update-read-status');
-    updateReadStatus.setAttribute('id',book.title);
+    updateReadStatus.setAttribute('id','updateReadStatus');
     updateReadStatus.textContent = "Update Status";
 
     buttonsDiv.appendChild(removeBook);
@@ -119,5 +127,16 @@ function BookCard(book){
 
     allBooks.appendChild(bookCard);
 
+    const removeBookBtn = document.querySelectorAll('button.remove-book');
+
+    removeBookBtn.forEach((removeBtn) =>{
+        removeBtn.addEventListener('click',() =>{
+            removeBookFunct(removeBtn.id);
+        });
+    });
+
 }
+
+
+
 
