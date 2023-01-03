@@ -32,10 +32,11 @@ function addBookToLibrary(title, author, pages, read) {
 };
 
 function removeBookFunct(id){
-    console.log(id);
+    event.preventDefault();
     let index = myLibrary.findIndex(book => book.id == id)
-    console.log(myLibrary);
     myLibrary.splice(index,1);
+    location.reload();
+    
     console.log(myLibrary);
 };
 function updateReadStatus(id){
