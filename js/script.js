@@ -1,8 +1,6 @@
 let myLibrary = [];
-myLibrary.push(new Book("Microeconomics","RobeRt S. Pindyck & Daniel l. Rubinfeld", "787", "Read"));
-myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
-let defaultBook ='';
 let id = 2;
+
 const addBookModal = document.getElementById('addBookModal');
 const addBookBtn = document.getElementById('addBook');
 const allBooks = document.getElementById('allBooks');
@@ -10,19 +8,22 @@ const bookDiv = document.createElement('div');
 const addBooksBtn = document.getElementById('bookBtn');
 const bookFieldsForm = document.getElementById('bookFields');
 
-function Book(id,title, author, pages, read){
-    this.id = id;
-    this.title =title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book{
+    constructor(id,title, author, pages, read){
+        this.id = id;
+        this.title =title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    
 }
+myLibrary.push(new Book("Microeconomics","RobeRt S. Pindyck & Daniel l. Rubinfeld", "787", "Read"));
+myLibrary.push(new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read"));
 
 Book.prototype.info = function(){
     return `The ${this.title} By  ${this.author} with  ${this.pages}, ${this.read}`;
 }
-
-defaultBook = new Book("Kutonhodzwa KwaChauruka","Athur Marara", "348", "not yet read");
 
 function addBookToLibrary(title, author, pages, read) {
     id+=1;
